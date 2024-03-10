@@ -90,6 +90,11 @@ public class Race extends JFrame {
 					racerList.add(new Hare("Hare", START_LINE, yPos));
 					yPos += RACER_SPACE;
 					break;
+				case 'D':
+				case 'd':
+					racerList.add(new Dog("Dog", START_LINE, yPos));
+					yPos += RACER_SPACE;
+					break;
 				default:
 					JOptionPane.showMessageDialog(this, "Animal does not exist.");
 			}
@@ -154,6 +159,9 @@ public class Race extends JFrame {
 				 */
 				// student code goes here
 
+				for (Racer racer: racerList) {
+					racer.draw(g);
+				}
 
 				/** end of student code, part 3 */
 			}
@@ -192,7 +200,7 @@ public class Race extends JFrame {
 	 */
 	private char getRacer() {
 		String input = JOptionPane.showInputDialog(this, "Enter a racer:"
-				+ "\nt for Tortoise, h for hare," + "\nor s to start the race");
+				+ "\nt for Tortoise, h for hare," + "\nd for Dog, " + "\nor s to start the race");
 		if (input == null) {
 			System.out.println("Exiting");
 			System.exit(0);
